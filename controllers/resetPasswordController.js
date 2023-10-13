@@ -19,7 +19,7 @@ exports.forgotPasswordPage = async (req, res, next) => {
       );
   } catch (error) {
     console.log(error);
-  }
+  }  
 };
 
 exports.sendMail = async (req, res, next) => {
