@@ -15,7 +15,7 @@ const getLoginPage = (req, res) => {
 };
 
 // Function to handle user registration
-// Function to handle user registration
+
 const postUserSignUp = async (req, res) => {
   try {
     const { name, email, password } = req.body;
@@ -75,6 +75,7 @@ const postUserLogin = async (req, res) => {
     // Generate and return an access token
     const token = generateAccessToken(user.id, user.email);
     res.status(200).json({ success: true, message: "Login Successful!", token });
+    
   } catch (error) {
     console.log(error);
     res.status(500).json({ success: false, message: "Something went wrong!" });

@@ -5,10 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/style.css" />
+    <body>
+      <div class="ocean">
+        <div class="wave"></div>
+        <div class="wave"></div>
+    </div>
     <title>Login or Sign Up</title>
+    <style>
+      /* Add a cursor style */
+      #quote:after {
+        content: "|";
+        animation: blink 1s infinite;
+      }
+
+      @keyframes blink {
+        0%, 100% { opacity: 0; }
+        50% { opacity: 1; }
+      }
+    </style>
   </head>
   <body>
-    <h2>Tracking expenses is directly proportional to saving money.</h2>
+    <h2 id="quote">Loading a random quote...</h2>
     <div class="container" id="container">
       <div class="form-container sign-up-container">
         <form action="/user/signUp" method="post">
@@ -78,6 +95,40 @@
       </div>
     </div>
   </body>
+  <script>
+  const quotes = [
+  "Saving money is a journey, not a destination.",
+  "The first step to financial freedom is tracking your expenses.",
+  "Budgeting today is investing in tomorrow.",
+  "A penny saved is a penny earned.",
+  // Add more quotes here
+];
+
+// Function to display a quote with typing effect
+function displayQuoteWithTyping() {
+  const quoteElement = document.getElementById("quote");
+  const randomIndex = Math.floor(Math.random() * quotes.length);
+  const quoteText = quotes[randomIndex];
+  
+  let charIndex = 0;
+  const typingInterval = 50; // Delay between typing each character
+
+  function typeNextCharacter() {
+    if (charIndex < quoteText.length) {
+      quoteElement.textContent += quoteText.charAt(charIndex);
+      charIndex++;
+      setTimeout(typeNextCharacter, typingInterval);
+    }
+  }
+
+  // Clear the existing text and start typing
+  quoteElement.textContent = "";
+  typeNextCharacter();
+}
+
+// Call the function when the page loads
+displayQuoteWithTyping();
+</script>
   <script
     src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.2/axios.min.js"
     integrity="sha512-QTnb9BQkG4fBYIt9JGvYmxPpd6TBeKp6lsUrtiVQsrJ9sb33Bn9s0wMQO9qVBFbPX3xHRAsBHvXlcsrnJjExjg=="
