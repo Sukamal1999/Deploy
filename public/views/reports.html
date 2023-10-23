@@ -67,6 +67,41 @@
             >
               Premium Member &#128081
             </button>
+            <button id="downloadReportsBtn" class="topBtn btn py-1" data-bs-toggle="tooltip" data-bs-placement="left" title="Download Reports">
+              Download Reports &#128229
+            </button>
+          <script>
+            document.addEventListener("DOMContentLoaded", function() {
+  const downloadReportsBtn = document.getElementById("downloadReportsBtn");
+
+  downloadReportsBtn.addEventListener("click", async () => {
+    try {
+      // Make an HTTP request to your server to trigger the download
+      const response = await fetch("/downloadReports", {
+        method: "GET",
+      });
+
+      if (response.ok) {
+        // Trigger the download
+        const blob = await response.blob();
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "expenses.csv";
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
+      } else {
+        console.error("Failed to download reports");
+      }
+    } catch (error) {
+      console.error("Error downloading reports:", error);
+    }
+  });
+});
+
+          </script>  
+          
             <button id="logoutBtn" class="topBtn btn py-1" type="button">Log out</button>
           </div>
         </div>

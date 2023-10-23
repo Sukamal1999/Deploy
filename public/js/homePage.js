@@ -346,6 +346,8 @@ async function logout() {
   }
 }
 
+
+
 buyPremiumBtn.addEventListener("click", buyPremium);
 addExpenseBtn.addEventListener("click", addExpense);
 document.addEventListener("DOMContentLoaded", isPremiumUser);
@@ -357,3 +359,5 @@ table.addEventListener("click", (e) => {
   editExpense(e);
 });
 logoutBtn.addEventListener("click", logout);
+
+

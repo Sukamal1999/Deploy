@@ -3,7 +3,10 @@ const router = express.Router();
 const reportsController = require("../controllers/reportsController");
 const userAuthentication = require("../middleware/auth");
 
-router.get("/getReportsPage", reportsController.getReportsPage);
+router.get("/getReportsPage", 
+reportsController.
+getReportsPage);
+
 router.post(
   "/dailyReports",
   userAuthentication,
@@ -14,5 +17,10 @@ router.post(
   userAuthentication,
   reportsController.monthlyReports
 );
+
+router.get(
+  "/downloadReports",
+   userAuthentication,
+  reportsController.downloadReports);
 
 module.exports = router;

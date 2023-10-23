@@ -27,6 +27,7 @@ const leaderboardRouter = require("./router/leaderboardRouter");
 const resetPasswordRouter = require("./router/resetPasswordRouter");
 const reportsRouter = require("./router/reportsRouter");
 
+
 const User = require("./models/userModel");
 const Expense = require("./models/expenseModel");
 const Order = require("./models/ordersModel");
@@ -49,6 +50,8 @@ app.use("/premium", leaderboardRouter);
 app.use("/password", resetPasswordRouter);
 
 app.use("/reports", reportsRouter);
+
+
 
 User.hasMany(Expense);
 Expense.belongsTo(User);
