@@ -57,7 +57,7 @@ exports.sendMail = async (req, res, next) => {
       subject: "Expense Tracker Reset Password",
       textContent: "Link Below",
       htmlContent: `<h3>Hi! We received a request from you to reset your password. Here is the link below:</h3>
-      <a href="http://localhost:3000/password/resetPasswordPage/${requestId}"> Click Here</a>`,
+      <a href="http://13.234.38.66:3000/password/resetPasswordPage/${requestId}"> Click Here</a>`,
     });
     
     return res.status(200).json({

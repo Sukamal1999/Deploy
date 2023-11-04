@@ -4,7 +4,7 @@ async function sendMail() {
   try {
     const email = document.getElementById("email").value;
     const res = await axios.post(
-      `http://localhost:3000/password/sendMail`,
+      `http://13.234.38.66:3000/password/sendMail`,
       {
         email: email,
       }
